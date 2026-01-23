@@ -37,10 +37,13 @@ const Header = () => {
   }, []);
 
   const handleNavClick = (href: string) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
+    const sectionId = href.replace('#', '');
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      setIsMobileMenuOpen(false);
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     }
   };
 
@@ -110,7 +113,11 @@ const Header = () => {
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-left text-lg font-medium text-foreground hover:text-accent transition-colors py-2"
+                  className={`text-left text-lg font-medium transition-colors py-3 px-2 rounded-md ${
+                    activeSection === item.href.slice(1)
+                      ? "text-accent bg-accent/10"
+                      : "text-foreground hover:text-accent"
+                  }`}
                 >
                   {item.label}
                 </button>
