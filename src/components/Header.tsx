@@ -74,16 +74,20 @@ const Header = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {navItems.map((item, index) => (
-              <button
-                key={item.href}
-                onClick={() => handleNavClick(item.href)}
-                className={`nav-link pb-1 text-sm font-medium ${
-                  activeSection === item.href.slice(1) ? "active" : ""
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {item.label}
-              </button>
+              <div key={item.href} className="flex items-center gap-8">
+                <button
+                  onClick={() => handleNavClick(item.href)}
+                  className={`nav-link pb-1 text-sm font-medium ${
+                    activeSection === item.href.slice(1) ? "active" : ""
+                  }`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {item.label}
+                </button>
+                {index < navItems.length - 1 && (
+                  <span className="h-6 w-px bg-accent/50" aria-hidden="true" />
+                )}
+              </div>
             ))}
           </motion.nav>
 
@@ -109,18 +113,24 @@ const Header = () => {
             className="md:hidden bg-background border-t border-border"
           >
             <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className={`text-left text-lg font-medium transition-colors py-3 px-2 rounded-md ${
-                    activeSection === item.href.slice(1)
-                      ? "text-accent bg-accent/10"
-                      : "text-foreground hover:text-accent"
-                  }`}
-                >
-                  {item.label}
-                </button>
+              {navItems.map((item, index) => (
+                <div key={item.href}>
+                  <button
+                    onClick={() => handleNavClick(item.href)}
+                    className={`text-left text-lg font-medium transition-colors py-3 px-2 rounded-md w-full ${
+                      activeSection === item.href.slice(1)
+                        ? "text-accent bg-accent/10"
+                        : "text-foreground hover:text-accent"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                  {index < navItems.length - 1 && (
+                    <div className="my-2 px-2">
+                      <span className="w-12 h-px bg-accent/50 block" aria-hidden="true" />
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
           </motion.div>

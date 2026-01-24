@@ -4,6 +4,7 @@ import PeopleSection from "@/components/PeopleSection";
 import CraftSection from "@/components/CraftSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import BridgeDivider from "@/components/BridgeDivider";
 
 const Index = () => {
   return (
@@ -14,9 +15,11 @@ const Index = () => {
         <section id="people">
           <PeopleSection />
         </section>
+        <BridgeDivider label="Say Hello" variant="purple" />
         <section id="craft">
           <CraftSection />
         </section>
+        <BridgeDivider />
         <section id="contact">
           <ContactSection />
         </section>

@@ -110,14 +110,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          <motion.p
-            className="text-sm font-medium tracking-widest text-muted-foreground uppercase mb-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            Creative Agency
-          </motion.p>
+          
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-8">
             Connecting ideas,
