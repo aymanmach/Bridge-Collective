@@ -72,10 +72,10 @@ const Footer = () => {
               transition={{ delay: 0.1 }}
             >
               <a
-                href="mailto:Yassmina@bridgecollective.co"
+                href="mailto:hello@bridgecollective.io"
                 className="text-primary-foreground/80 hover:text-accent transition-colors"
               >
-                Yassmina@bridgecollective.co
+                hello@bridgecollective.io
               </a>
               <a
                 href="tel:+32494698843"

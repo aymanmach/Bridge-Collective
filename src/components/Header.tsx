@@ -5,6 +5,7 @@ import Logo from "./Logo";
 
 const navItems = [
   { label: "The People", href: "#people" },
+  { label: "Founder", href: "#founder" },
   { label: "Our Craft", href: "#craft" },
   { label: "Say Hello", href: "#contact" },
 ];

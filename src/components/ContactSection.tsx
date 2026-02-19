@@ -14,6 +14,8 @@ interface FormErrors {
   message?: string;
 }
 
+const CONTACT_EMAIL = "hello@bridgecollective.io";
+
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -26,6 +28,19 @@ const ContactSection = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const buildMailtoUrl = () => {
+    const subject = `New message from ${formData.name.trim()}`;
+    const body = [
+      `Name: ${formData.name.trim()}`,
+      `Email: ${formData.email.trim()}`,
+      "",
+      "Message:",
+      formData.message.trim(),
+    ].join("\n");
+
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -58,10 +73,11 @@ const ContactSection = () => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
+    window.location.href = buildMailtoUrl();
+
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
     setIsSubmitting(false);
     setIsSubmitted(true);
     setFormData({ name: "", email: "", message: "" });
@@ -93,7 +109,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-sm font-medium tracking-widest text-accent uppercase">
-              03 — Say Hello
+              04 — Say Hello
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
               Let's Connect
@@ -127,7 +143,7 @@ const ContactSection = () => {
                     Message Sent!
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    Thanks for reaching out. We'll get back to you within 24 hours.
+                    Thanks for reaching out. Your email app is now ready to send your message to us.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
@@ -272,10 +288,10 @@ const ContactSection = () => {
                 <div className="mb-8">
                   <p className="text-sm text-muted-foreground mb-2">Email us at</p>
                   <a
-                    href="mailto:Yassmina@bridgecollective.co"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="text-foreground hover:text-accent transition-colors font-medium"
                   >
-                    Yassmina@bridgecollective.co
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
 

@@ -16,6 +16,8 @@ import {
   Send,
   Search,
   Eye,
+  Presentation,
+  MonitorPlay,
 } from "lucide-react";
 
 const services = [
@@ -61,6 +63,13 @@ const services = [
     title: "SEO & Visibility",
     description: "Search optimization that puts your brand in front of the right audience.",
   },
+  {
+    icon: Presentation,
+    secondaryIcon: MonitorPlay,
+    title: "Events & Webinars",
+    description:
+      "From physical events to online webinars, we create experiences that connect your brand with the right audience.",
+  },
 ];
 
 const CraftSection = () => {
@@ -79,7 +88,7 @@ const CraftSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-sm font-medium tracking-widest text-accent uppercase">
-              02 — Our Craft
+              03 — Our Craft
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
               What We Do
