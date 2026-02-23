@@ -93,7 +93,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <a
+              {/* <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -119,7 +119,7 @@ const Footer = () => {
                 aria-label="X (Twitter)"
               >
                 <Twitter className="w-5 h-5" />
-              </a>
+              </a> */}
             </motion.div>
           </div>
 
