@@ -296,7 +296,7 @@ const ContactSection = () => {
                 </div>
 
                 {/* Social Links */}
-                <div>
+                {/* <div>
                   <p className="text-sm text-muted-foreground mb-4">
                     Follow us on
                   </p>
@@ -329,7 +329,7 @@ const ContactSection = () => {
                       <Twitter className="w-5 h-5" />
                     </a>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Abstract decoration */}
                 <div className="mt-8 pt-8 border-t border-border">

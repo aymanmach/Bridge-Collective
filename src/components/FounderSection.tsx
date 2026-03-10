@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Lightbulb, PenSquare, Target } from "lucide-react";
+import founderImage from "../yasmina.jpeg";
 
 const founderHighlights = [
   {
@@ -92,6 +93,25 @@ const FounderSection = () => {
               ))}
             </motion.div>
           </div>
+
+          <motion.div
+            className="mt-16 md:mt-20 flex justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.5 }}
+          >
+            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl">
+              <div className="absolute -inset-3 sm:-inset-4 rounded-[2rem] bg-gradient-to-r from-accent/20 via-transparent to-accent/10 blur-xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-background p-2 shadow-[0_18px_50px_-20px_hsla(0,0%,0%,0.45)]">
+                <img
+                  src={founderImage}
+                  alt="Yasmina, founder of Bridge Collective"
+                  className="w-full h-auto max-h-[70vh] object-cover object-center rounded-[1.5rem] transition-transform duration-500 hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
